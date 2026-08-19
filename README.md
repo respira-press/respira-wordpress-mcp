@@ -7,7 +7,7 @@
 <h1 align="center">Respira WordPress MCP Server</h1>
 
 <p align="center">
-  <strong>319 tools and 277 WordPress Abilities across 17 page builders. The AI infrastructure layer for WordPress.</strong><br>
+  <strong>A catalog of 319 MCP tools and 277 WordPress Abilities across 17 page builders. The AI infrastructure layer for WordPress.</strong><br>
   Element-level editing, full page creation, HTML and Figma to native builder conversion, design directions, site memory, accessibility and security scanning, per-tool governance, snapshots and rollback.
 </p>
 
@@ -257,9 +257,25 @@ The full reference lives in the [docs](https://www.respira.press/docs). The fami
 | **Media** | Upload, sideload from URL, batch metadata updates, Openverse stock image search with auto-attribution |
 | **Bulk operations** | Up to 100 pages per call, with mandatory snapshots |
 | **Multi-site** | List, switch, and act on many sites from one config |
-| **WooCommerce** | 105 tools in the [add-on](https://www.respira.press/addons/woocommerce): catalog, pricing, inventory, orders, storefront design |
+| **WooCommerce** | 105 tools in the paid [add-on](https://www.respira.press/addons/woocommerce): catalog, pricing, inventory, orders, storefront design |
 
 All tools use `respira_*` names. The legacy `wordpress_*` aliases are deprecated and will be removed.
+
+### What the numbers mean
+
+Counts on this page describe the **catalog on a fully enabled site**, not what your client will list.
+
+| Figure | Count |
+|---|---|
+| MCP tools, whole product | 319 |
+| MCP tools included in every plan | 214 |
+| WooCommerce tools (paid add-on) | 105 |
+| WordPress Abilities | 277 |
+| Unique tools and abilities, whole product | 320 |
+
+A live `tools/list` returns fewer than 319, and that is correct behaviour rather than a missing feature. The server context-filters the catalog per site, so Bricks tools never reach an Elementor site and the commerce tools stay hidden without WooCommerce. A block-theme site with no page builder sees roughly 28 fewer core tools.
+
+The Abilities registry is not context-filtered, so on the same site the abilities total legitimately exceeds the tools total. The two are not directly comparable.
 
 ### Bundled skills
 
@@ -483,6 +499,6 @@ MIT © [Respira](https://www.respira.press)
 ---
 
 <p align="center">
-  <strong>319 tools. 17 builders. The AI infrastructure layer for WordPress.</strong><br>
+  <strong>319 tools in the catalog. 17 builders. The AI infrastructure layer for WordPress.</strong><br>
   <a href="https://www.respira.press">respira.press</a>
 </p>
