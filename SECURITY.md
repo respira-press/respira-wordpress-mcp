@@ -14,23 +14,31 @@ This security policy covers:
 - The **Respira for WordPress** plugin's REST API surface (`/wp-json/respira/v1/*`, `/wp-json/respira/v2/*`, `/wp-json/webmcp/v1/*`). Source: closed, commercial license.
 - The Respira account / billing surfaces hosted at `https://www.respira.press` (signup, login, dashboard, billing, license issuance).
 
-Out of scope: third-party MCP directories (Glama, Smithery, MCP Registry) — please report issues with those listings to the directory operators directly.
+Out of scope: third-party MCP directories (Glama, Smithery, MCP Registry). Please report issues with those listings to the directory operators directly.
 
 ## Architecture & trust model
 
 The MCP server in this repo is a thin wrapper. **License validation, business logic, and per-site permission gating all live in the WordPress plugin.** That separation is intentional:
 
 - The npm package is MIT and contains no license-validation logic. Anyone can read, fork, or vendor it.
-- The plugin (1000+ PHP files, not open source) enforces the API key check on every write-capable REST route. It also runs the snapshot/duplicate-first safety, builder intelligence, and governance.
-- Without a valid Respira API key bound to an active license, the plugin's write surface is closed. Read-only schema endpoints (`/divi/modules/<slug>/schema`, `/server/compatibility`) are intentionally anonymous so AI agents can introspect what they're working with before authentication.
+- The plugin, which is not open source, enforces the API key check on every write-capable REST route. It also runs the snapshot and duplicate-first safety, the builder intelligence, and governance.
+- Without a valid Respira API key bound to an active license, the plugin's write surface is closed. A small set of read-only endpoints are intentionally anonymous (`permission_callback => __return_true`) so an agent can introspect a site before authenticating: `/divi/modules/<slug>/schema`, `/server/compatibility`, and the `/status` liveness probe. None of them return site content, user data, or configuration.
 
-So if you find a way to make the npm package do something it shouldn't on its own — that's an MCP-server bug. If you find a way to bypass the plugin's API-key gate — that's a plugin bug, and far higher severity.
+So a way to make the npm package do something it should not on its own is an MCP-server bug. A way to bypass the plugin's API key gate is a plugin bug, and far higher severity.
 
 ## Telemetry the package sends
 
-The npm package emits **anonymous crash reports to Sentry** at startup and on unhandled errors. The DSN is embedded in the build (Sentry treats DSNs as public-by-design — they're how the SDK reaches the project). No customer data, no API keys, no site URLs are sent — only stack traces, Node version, OS, and the agent client identifier (Claude Code, Cursor, etc.).
+The npm package emits **anonymous crash reports to Sentry** at startup and on unhandled errors. The DSN is embedded in the build. Sentry treats DSNs as public by design, since they are how the SDK reaches the project. No customer data, no API keys and no site URLs are sent. Only stack traces, Node version, OS, and the agent client identifier (Claude Code, Cursor, and so on).
 
-To disable, set `RESPIRA_MCP_DISABLE_UPDATE_CHECK=1` or run with `--no-telemetry` (configurable via the env var).
+There is currently **no runtime opt-out** for crash reporting. An earlier version of this policy named `--no-telemetry` and `RESPIRA_MCP_DISABLE_UPDATE_CHECK` as ways to disable it. Neither does: the flag does not exist, and `RESPIRA_MCP_DISABLE_UPDATE_CHECK=1` only suppresses the version update check in `version-checker.ts`. An opt-out is on the list. If you need one before it lands, say so at security@respira.press.
+
+Sentry is skipped entirely on Node 25 and above, because the SDK ships a zero-byte prebuilt native binary for that ABI and loading it aborts the process before any error handler can run. On those runtimes the package sends nothing.
+
+The separate update check calls the npm registry to compare your installed version against the latest. Disable it with:
+
+```bash
+export RESPIRA_MCP_DISABLE_UPDATE_CHECK=1
+```
 
 ## What the package contains
 
@@ -41,18 +49,18 @@ npm pack @respira/wordpress-mcp-server
 tar -tzf respira-wordpress-mcp-server-*.tgz
 ```
 
-Should show: `package/README.md`, `package/icon.png`, `package/package.json`, `package/dist/**` (compiled JS + sourcemaps + d.ts). No build scripts, no postinstall hooks, no native binaries.
+Should show `package/dist/**` (compiled JS, sourcemaps, type definitions), `package/skills/**` (the bundled Claude Code skills, plain markdown), `package/certs/**`, `package/README.md`, `package/CHANGELOG.md`, `package/TOOL_CATALOG.md`, `package/SOUL.md`, `package/tool-capabilities.json`, `package/icon.png` and `package/package.json`. No build scripts, no postinstall hooks, no native binaries.
 
 ## Supported versions
 
 | Version line | Status | Security fixes |
 |---|---|---|
-| 6.11.x | Current | Active |
-| 6.10.x | Older minor | Critical only |
-| ≤ 6.9.x | End of life | Upgrade |
+| 8.3.x | Current | Active |
+| 8.2.x | Older minor | Critical only |
+| 8.1.x and below | End of life | Upgrade |
 
-The plugin and MCP server version together — the `respira_get_server_compatibility` tool returns the supported MCP version range. Mismatches surface a stderr warning at startup.
+The plugin and the MCP server version independently. The `respira_get_server_compatibility` tool returns the MCP version range a given plugin build supports, and a mismatch surfaces a stderr warning at startup.
 
 ## Coordinated disclosure
 
-If your report results in a CVE, we'll credit you in the release notes unless you ask us not to. Bounty: not currently offered, but we send a thank-you and Respira credit (free year on the plan of your choice) for vulnerabilities affecting the plugin's auth gate or the npm package's runtime safety.
+If your report results in a CVE, you get credited in the release notes unless you ask not to be. There is no bounty programme, but a vulnerability affecting the plugin's auth gate or the npm package's runtime safety earns a thank-you and Respira credit: a free year on the plan of your choice.
