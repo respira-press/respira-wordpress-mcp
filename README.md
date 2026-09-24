@@ -7,14 +7,14 @@
 <h1 align="center">Respira WordPress MCP Server</h1>
 
 <p align="center">
-  <strong>A catalog of 319 MCP tools and 277 WordPress Abilities across 17 page builders. The AI infrastructure layer for WordPress.</strong><br>
+  <strong>A catalog of 337 MCP tools and 339 WordPress Abilities across 17 page builders. The AI infrastructure layer for WordPress.</strong><br>
   Element-level editing, full page creation, HTML and Figma to native builder conversion, design directions, site memory, accessibility and security scanning, per-tool governance, snapshots and rollback.
 </p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@respira/wordpress-mcp-server"><img src="https://img.shields.io/npm/v/@respira/wordpress-mcp-server.svg?style=flat-square&color=10b981" alt="npm version"></a>
   <a href="https://www.npmjs.com/package/@respira/wordpress-mcp-server"><img src="https://img.shields.io/npm/dm/@respira/wordpress-mcp-server.svg?style=flat-square" alt="npm downloads"></a>
-  <img src="https://img.shields.io/badge/tools-319-10b981?style=flat-square" alt="319 tools">
+  <img src="https://img.shields.io/badge/tools-337-10b981?style=flat-square" alt="337 tools">
   <img src="https://img.shields.io/badge/builders-17-10b981?style=flat-square" alt="17 page builders">
   <img src="https://img.shields.io/badge/TypeScript-100%25-blue?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
 </p>
@@ -257,7 +257,7 @@ The full reference lives in the [docs](https://www.respira.press/docs). The fami
 | **Media** | Upload, sideload from URL, batch metadata updates, Openverse stock image search with auto-attribution |
 | **Bulk operations** | Up to 100 pages per call, with mandatory snapshots |
 | **Multi-site** | List, switch, and act on many sites from one config |
-| **WooCommerce** | 105 tools in the paid [add-on](https://www.respira.press/addons/woocommerce): catalog, pricing, inventory, orders, storefront design |
+| **WooCommerce** | 104 tools in the paid [add-on](https://www.respira.press/addons/woocommerce): catalog, pricing, inventory, orders, storefront design |
 
 All tools use `respira_*` names. The legacy `wordpress_*` aliases are deprecated and will be removed.
 
@@ -267,13 +267,13 @@ Counts on this page describe the **catalog on a fully enabled site**, not what y
 
 | Figure | Count |
 |---|---|
-| MCP tools, whole product | 319 |
+| MCP tools, whole product | 337 |
 | MCP tools included in every plan | 214 |
-| WooCommerce tools (paid add-on) | 105 |
-| WordPress Abilities | 277 |
+| WooCommerce tools (paid add-on) | 104 |
+| WordPress Abilities | 339 |
 | Unique tools and abilities, whole product | 320 |
 
-A live `tools/list` returns fewer than 319, and that is correct behaviour rather than a missing feature. The server context-filters the catalog per site, so Bricks tools never reach an Elementor site and the commerce tools stay hidden without WooCommerce. A block-theme site with no page builder sees roughly 28 fewer core tools.
+A live `tools/list` returns fewer than 337, and that is correct behaviour rather than a missing feature. The server context-filters the catalog per site, so Bricks tools never reach an Elementor site and the commerce tools stay hidden without WooCommerce. A block-theme site with no page builder sees roughly 28 fewer core tools.
 
 The Abilities registry is not context-filtered, so on the same site the abilities total legitimately exceeds the tools total. The two are not directly comparable.
 
@@ -309,7 +309,7 @@ Respira works with the official WordPress AI stack, not around it.
 |---|---|---|
 | **Standalone MCP** (this package) | `npx @respira/wordpress-mcp-server` | Node 18+, Respira plugin |
 | **Remote MCP** | Hosted endpoint with OAuth, no local process | Respira plugin, account |
-| **WordPress Abilities API** | 277 abilities registered, auto-discovered | WP 6.9+, Respira plugin |
+| **WordPress Abilities API** | 339 abilities registered, auto-discovered | WP 6.9+, Respira plugin |
 | **MCP Adapter** | Abilities exposed over WP-CLI STDIO | WP 6.9+, MCP Adapter plugin |
 | **WebMCP** | Browser-native MCP via the Chrome Abilities API | Chrome 146+, Respira plugin |
 
@@ -499,6 +499,6 @@ MIT © [Respira](https://www.respira.press)
 ---
 
 <p align="center">
-  <strong>319 tools in the catalog. 17 builders. The AI infrastructure layer for WordPress.</strong><br>
+  <strong>337 tools in the catalog. 17 builders. The AI infrastructure layer for WordPress.</strong><br>
   <a href="https://www.respira.press">respira.press</a>
 </p>
