@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "respira-wordpress": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@respira/wordpress-mcp-server"]
+    }
+  }
+}

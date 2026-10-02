@@ -1,0 +1,14 @@
+{
+  "name": "respira",
+  "version": "1.0.0",
+  "description": "Respira for WordPress: read and edit a live WordPress site in the page builder's own format. An edit to a published page lands on a draft copy that a person approves, and every write saves a snapshot first. Needs the Respira plugin on the site and a Respira account.",
+  "author": {
+    "name": "Respira",
+    "email": "word@respira.press",
+    "url": "https://www.respira.press"
+  },
+  "homepage": "https://www.respira.press/integrations/grok",
+  "repository": "https://github.com/respira-press/respira-wordpress-mcp",
+  "license": "MIT",
+  "keywords": ["respira", "respira wordpress", "respira mcp"]
+}

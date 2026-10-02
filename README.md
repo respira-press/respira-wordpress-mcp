@@ -361,6 +361,31 @@ export WORDPRESS_API_KEY="respira_your_key"
 
 ---
 
+## Grok Build plugin
+
+This repository is also the source of the Respira plugin for Grok Build. The plugin is small on purpose. It ships two files and nothing else:
+
+- `.grok-plugin/plugin.json`, the manifest.
+- `.mcp.json`, one MCP server definition: `npx -y @respira/wordpress-mcp-server`, the same package this README describes.
+
+It has no skills, no commands, no agents, no hooks and no install scripts.
+
+**Before first use.** Install the [Respira for WordPress](https://www.respira.press/plugin) plugin on the site, then run `npx @respira/wordpress-mcp-server --setup` once. That writes the site list to `~/.respira/config.json`, which the server reads when Grok Build starts it. With no site in that file the server starts with one tool, `respira_redeem_token`, which takes a setup code from [respira.press/dashboard/mcp](https://www.respira.press/dashboard/mcp) and writes the site list for you.
+
+**Network endpoints the server calls.**
+
+| Endpoint | Why |
+|---|---|
+| Your own WordPress sites, at `/wp-json/respira/v1/` | Every tool call is a request to the Respira plugin on a site in your config file. Nothing else reads or writes site content. |
+| `https://www.respira.press` | Exchanging a setup code for the site list, refreshing that list, and one usage record per tool call (tool name, site, version, duration; no page content and no conversation). `RESPIRA_USAGE_OPT_OUT=1` turns the usage records off. A bug report is sent only when you ask for one. |
+| `https://registry.npmjs.org` | A check for a newer version of the package. `RESPIRA_MCP_DISABLE_UPDATE_CHECK=1` turns it off. |
+
+**Credentials.** One Respira site key per site, kept in `~/.respira/config.json` on your machine (or `WORDPRESS_URL` and `WORDPRESS_API_KEY` for a single site). The key goes only to the site it belongs to, in a request header. The WordPress plugin checks it; the server does not read SSH keys, `.env` files or other tokens.
+
+**Without the plugin.** Grok Build can also reach a site directly, one command per site: see [respira.press/integrations/grok](https://www.respira.press/integrations/grok).
+
+---
+
 ## Health check
 
 ```bash
