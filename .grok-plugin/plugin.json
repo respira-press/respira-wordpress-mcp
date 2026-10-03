@@ -1,5 +1,5 @@
 {
-  "name": "respira",
+  "name": "respira-for-wordpress",
   "version": "1.0.0",
   "description": "Respira for WordPress: read and edit a live WordPress site in the page builder's own format. An edit to a published page lands on a draft copy that a person approves, and every write saves a snapshot first. Needs the Respira plugin on the site and a Respira account.",
   "author": {
