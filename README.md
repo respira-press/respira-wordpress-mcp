@@ -7,7 +7,7 @@
 <h1 align="center">Respira WordPress MCP Server</h1>
 
 <p align="center">
-  <strong>A catalog of 337 MCP tools and 339 WordPress Abilities across 17 page builders. The AI infrastructure layer for WordPress.</strong><br>
+  <strong>MCP tools and WordPress Abilities across 17 page builders. The AI infrastructure layer for WordPress.</strong><br>
   Element-level editing, full page creation, HTML and Figma to native builder conversion, design directions, site memory, accessibility and security scanning, per-tool governance, snapshots and rollback.
 </p>
 
@@ -263,17 +263,9 @@ All tools use `respira_*` names. The legacy `wordpress_*` aliases are deprecated
 
 ### What the numbers mean
 
-Counts on this page describe the **catalog on a fully enabled site**, not what your client will list.
+The current counts are on the [live tools catalog](https://www.respira.press/tools), counted from the code on every release: MCP tools for the whole product and for every plan, the WooCommerce add-on's tools, and WordPress Abilities. They describe the **catalog on a fully enabled site**, not what your client will list.
 
-| Figure | Count |
-|---|---|
-| MCP tools, whole product | 337 |
-| MCP tools included in every plan | 214 |
-| WooCommerce tools (paid add-on) | 104 |
-| WordPress Abilities | 339 |
-| Unique tools and abilities, whole product | 320 |
-
-A live `tools/list` returns fewer than 337, and that is correct behaviour rather than a missing feature. The server context-filters the catalog per site, so Bricks tools never reach an Elementor site and the commerce tools stay hidden without WooCommerce. A block-theme site with no page builder sees roughly 28 fewer core tools.
+A live `tools/list` returns fewer than the catalog total, and that is correct behaviour rather than a missing feature. The server context-filters the catalog per site, so Bricks tools never reach an Elementor site and the commerce tools stay hidden without WooCommerce. A block-theme site with no page builder sees fewer core tools still.
 
 The Abilities registry is not context-filtered, so on the same site the abilities total legitimately exceeds the tools total. The two are not directly comparable.
 
