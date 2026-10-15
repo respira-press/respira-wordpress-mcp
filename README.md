@@ -7,7 +7,7 @@
 <h1 align="center">Respira WordPress MCP Server</h1>
 
 <p align="center">
-  <strong>MCP tools and WordPress Abilities across 17 page builders. The AI infrastructure layer for WordPress.</strong><br>
+  <strong>MCP tools and WordPress Abilities across 18 page builders. The AI infrastructure layer for WordPress.</strong><br>
   Element-level editing, full page creation, HTML and Figma to native builder conversion, design directions, site memory, accessibility and security scanning, per-tool governance, snapshots and rollback.
 </p>
 
@@ -15,7 +15,7 @@
   <a href="https://www.npmjs.com/package/@respira/wordpress-mcp-server"><img src="https://img.shields.io/npm/v/@respira/wordpress-mcp-server.svg?style=flat-square&color=10b981" alt="npm version"></a>
   <a href="https://www.npmjs.com/package/@respira/wordpress-mcp-server"><img src="https://img.shields.io/npm/dm/@respira/wordpress-mcp-server.svg?style=flat-square" alt="npm downloads"></a>
   <a href="https://www.respira.press/tools"><img src="https://img.shields.io/badge/tools-live%20catalog-10b981?style=flat-square" alt="Tool catalog"></a>
-  <img src="https://img.shields.io/badge/builders-17-10b981?style=flat-square" alt="17 page builders">
+  <img src="https://img.shields.io/badge/builders-18-10b981?style=flat-square" alt="18 page builders">
   <img src="https://img.shields.io/badge/TypeScript-100%25-blue?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
 </p>
 
@@ -55,7 +55,7 @@ Respira ships a WordPress plugin that gives an AI agent native access to the bui
 
 | Capability | Respira | REST API wrappers |
 |---|---|---|
-| Page builder support | **17 builders** | None |
+| Page builder support | **18 builders** | None |
 | Element-level find / update / move / remove | **Yes** | No |
 | Build full pages from a declarative structure | **Yes** | No |
 | Convert HTML or Figma to native builder output | **Yes** | No |
@@ -206,7 +206,7 @@ On top of that, the server filters the tool list by what your site actually runs
 
 ---
 
-## 17 supported page builders
+## 18 supported page builders
 
 `level` is Respira's write depth, not the builder's quality.
 
@@ -229,6 +229,7 @@ On top of that, the server filters the tool list by what your site actually runs
 | **Visual Composer** | Smart | Limited write |
 | **Thrive Architect** | Smart | Text edits |
 | **SeedProd** | Smart | Audit only |
+| **YOOtheme Pro** | Full | Layouts read and written in YOOtheme's own format, saved through its builder |
 
 Mixed-builder sites are handled per page, not per site.
 

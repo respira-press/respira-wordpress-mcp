@@ -1,4 +1,8 @@
 {
   "$schema": "https://glama.ai/mcp/schemas/server.json",
-  "maintainers": ["webmyc"]
+  "maintainers": [
+    "webmyc"
+  ],
+  "name": "Respira for WordPress",
+  "description": "WordPress MCP server for 18 page builders. Edits land on a copy first, with snapshots and undo. Needs the Respira plugin and a licence; free trial available."
 }
