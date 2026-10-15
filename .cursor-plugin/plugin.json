@@ -1,0 +1,33 @@
+{
+  "name": "respira-for-wordpress",
+  "displayName": "Respira for WordPress",
+  "version": "8.6.0",
+  "description": "Read and edit a live WordPress site in its page builder's own format: Elementor, Divi, Bricks, Gutenberg and 14 more. An edit to a published page lands on a draft copy a person approves, and every write saves a snapshot first. Needs the Respira plugin on the site; there is a free trial.",
+  "author": {
+    "name": "Respira",
+    "email": "word@respira.press"
+  },
+  "homepage": "https://www.respira.press/integrations/cursor",
+  "repository": "https://github.com/respira-press/respira-wordpress-mcp",
+  "license": "MIT",
+  "keywords": ["wordpress", "elementor", "divi", "bricks", "gutenberg", "page builder", "woocommerce", "mcp"],
+  "logo": "assets/respira-symbol-256.png",
+  "rules": "rules/",
+  "mcpServers": "./mcp.json",
+  "variables": {
+    "type": "object",
+    "properties": {
+      "WORDPRESS_URL": {
+        "type": "string",
+        "title": "WordPress site URL",
+        "description": "The site address exactly as in WordPress Settings, General, https included. Example: https://example.com"
+      },
+      "WORDPRESS_API_KEY": {
+        "type": "string",
+        "title": "Respira API key",
+        "description": "From wp-admin, Respira, Setup, or from your setup page at https://www.respira.press/dashboard/mcp. It starts with respira_."
+      }
+    },
+    "required": ["WORDPRESS_URL", "WORDPRESS_API_KEY"]
+  }
+}

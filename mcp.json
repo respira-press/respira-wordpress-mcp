@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "respira-wordpress": {
+      "command": "npx",
+      "args": ["-y", "@respira/wordpress-mcp-server@latest"],
+      "env": {
+        "WORDPRESS_URL": "${WORDPRESS_URL}",
+        "WORDPRESS_API_KEY": "${WORDPRESS_API_KEY}"
+      }
+    }
+  }
+}
