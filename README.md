@@ -7,7 +7,7 @@
 <h1 align="center">Respira WordPress MCP Server</h1>
 
 <p align="center">
-  <strong>MCP tools and WordPress Abilities across 18 page builders. The AI infrastructure layer for WordPress.</strong><br>
+  <strong>MCP tools and WordPress Abilities across 19 page builders. The AI infrastructure layer for WordPress.</strong><br>
   Element-level editing, full page creation, HTML and Figma to native builder conversion, design directions, site memory, accessibility and security scanning, per-tool governance, snapshots and rollback.
 </p>
 
@@ -15,7 +15,7 @@
   <a href="https://www.npmjs.com/package/@respira/wordpress-mcp-server"><img src="https://img.shields.io/npm/v/@respira/wordpress-mcp-server.svg?style=flat-square&color=10b981" alt="npm version"></a>
   <a href="https://www.npmjs.com/package/@respira/wordpress-mcp-server"><img src="https://img.shields.io/npm/dm/@respira/wordpress-mcp-server.svg?style=flat-square" alt="npm downloads"></a>
   <a href="https://www.respira.press/tools"><img src="https://img.shields.io/badge/tools-live%20catalog-10b981?style=flat-square" alt="Tool catalog"></a>
-  <img src="https://img.shields.io/badge/builders-18-10b981?style=flat-square" alt="18 page builders">
+  <img src="https://img.shields.io/badge/builders-19-10b981?style=flat-square" alt="19 page builders">
   <img src="https://img.shields.io/badge/TypeScript-100%25-blue?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
 </p>
 
@@ -55,7 +55,7 @@ Respira ships a WordPress plugin that gives an AI agent native access to the bui
 
 | Capability | Respira | REST API wrappers |
 |---|---|---|
-| Page builder support | **18 builders** | None |
+| Page builder support | **19 builders** | None |
 | Element-level find / update / move / remove | **Yes** | No |
 | Build full pages from a declarative structure | **Yes** | No |
 | Convert HTML or Figma to native builder output | **Yes** | No |
@@ -206,7 +206,7 @@ On top of that, the server filters the tool list by what your site actually runs
 
 ---
 
-## 18 supported page builders
+## 19 supported page builders
 
 `level` is Respira's write depth, not the builder's quality.
 
@@ -230,6 +230,7 @@ On top of that, the server filters the tool list by what your site actually runs
 | **Thrive Architect** | Smart | Text edits |
 | **SeedProd** | Smart | Audit only |
 | **YOOtheme Pro** | Full | Layouts read and written in YOOtheme's own format, saved through its builder |
+| **Avada** | Full | Avada Builder shortcodes, global palette and typography, Layouts and Library (plugin 9.2.6+) |
 
 Mixed-builder sites are handled per page, not per site.
 
@@ -251,6 +252,10 @@ The full reference lives in the [docs](https://www.respira.press/docs). The fami
 | **Playbooks** | Named, reusable procedures an agent can create, fetch, and run |
 | **Snapshots** | Automatic before every write, diff two snapshots, restore any of them |
 | **Analysis** | SEO, AEO, readability, RankMath, structured data, images, Core Web Vitals, PageSpeed |
+| **SEO plugins** | Title, description, focus keyword, canonical and robots written into Yoast SEO, Rank Math, SEOPress or All in One SEO 4 in that plugin's own fields, and read back. Yoast term SEO and Search Appearance tools |
+| **Updates and backups** | List pending updates and install only the versions a person saw. Guarded plugin update: a fresh backup through Duplicator, BackWPup or UpdraftPlus first, four health checks after, the previous version put back from wordpress.org if one fails, and a receipt |
+| **Builder migrations** | 16 free [migration skills](https://www.respira.press/skills/migrations), for example Elementor to Bricks, Divi to Bricks, WPBakery to Gutenberg |
+| **Access control** | Access profiles (Everything, Content, Observe for read only), per-tool switches, and Publish only keys limited to drafts and SEO fields. They hold on every connection |
 | **Accessibility** | Scan a page, list scans, apply fixes |
 | **Security** | Security audit, validation, core hardening, debug log reading |
 | **Theme and templates** | FSE templates, template parts, patterns, navigation, theme builder templates, theme file read and write |
